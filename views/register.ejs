@@ -1,0 +1,29 @@
+<% include partials/header.ejs %>
+<h1>
+	This is the registration form!
+</h1>
+<form action = "/register" method = "POST">
+	Please type your username: <input type = "text" placeholder = "username" name = "username" required><br>
+	Please type in your password: <input type = "password" placeholder = "password" name = "password" required><br> 
+	First name: <input type = "text" placeholder = "first_name" name = "first_name" required><br>
+	Last name: <input type = "text" placeholder = "last_name" name = "last_name" required><br>
+	Age: <input type = "text" placeholder = "age" name = "age" required><br>
+	UTR if known: <input type = "text" placeholder = "UTR" name = "UTR"><br>
+	NTRP if known: <input type = "text" placeholder = "NTRP" name = "NTRP"><br> 
+	Telephone: <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+	<small>Format: 123-456-7890</small><br>
+	<label for="email">Email</label>
+	<input type="text" id="email" name="email" placeholder="john@example.com"><br>
+	<label for="adr">Street Address</label>
+	<input type="text" id="adr" name="address" placeholder="542 W. 15th Street"><br>
+	<label for="city">City</label>
+	<input type="text" id="city" name="city" placeholder="New York"><br>
+	<label for="state">State</label>
+	<input type="text" id="state" name="state" placeholder="NY"><br>
+	<label for="zip">Zip</label>
+	<input type="text" id="zip" name="zip" placeholder="10001"><br>
+	<button>
+		Submit
+	</button>
+</form>
+<% include partials/footer.ejs %>
