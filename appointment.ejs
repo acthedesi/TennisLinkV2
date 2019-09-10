@@ -1,0 +1,77 @@
+<% include partials/header.ejs %>
+  Welcome to the update page!
+<style>
+.shade{
+	background-color:green;
+}
+</style>
+
+	<p>
+		Simply update the time blocks that you are free throughout the week and the home page will display players around your skill level who are available to hit with 		you today. 
+		<div>
+			<form action = "/appointment" method = "POST">
+				Monday: Start: <select name = "mondayStartTime"></select> End: <select name = "mondayEndTime"></select>
+				<input type="submit" name="updateMon" value="update">
+				<input type="submit" name="updateMon" value="clear"><br>
+				Tuesday: Start: <select name = "tuesdayStartTime"></select> End: <select name = "tuesdayEndTime"></select>
+				<input type="submit" name="updateTues" value="update">
+				<input type="submit" name="updateTues" value="clear"><br>
+				Wednesday: Start: <select name = "wednesdayStartTime"></select> End: <select name = "wednesdayEndTime"></select></select>
+				<input type="submit" name="updateWed" value="update">
+				<input type="submit" name="updateWed" value="clear"><br>
+				Thursday: Start: <select name = "thursdayStartTime"></select> End: <select name = "thursdayEndTime"></select>
+				<input type="submit" name="updateThurs" value="update">
+				<input type="submit" name="updateThurs" value="clear"><br>
+				Friday: Start: <select name = "fridayStartTime"></select> End: <select name = "fridayEndTime"></select>
+				<input type="submit" name="updateFri" value="update">
+				<input type="submit" name="updateFri" value="clear"><br>
+				Saturday: Start: <select name = "saturdayStartTime"></select> End: <select name = "saturdayEndTime"></select>				
+				<input type="submit" name="updateSat" value="update">
+				<input type="submit" name="updateSat" value="clear"><br>
+				Sunday: Start: <select name = "sundayStartTime"></select> End: <select name = "sundayEndTime"></select>
+				<input type="submit" name="updateSun" value="update">
+				<input type="submit" name="updateSun" value="clear"><br>
+			</form>
+			<table id = "calendar" class="table table-bordered">
+			  <thead>
+				<tr>
+					<th>Time</th>
+					<th>Monday</th>
+					<th>Tuesday</th>
+					<th>Wednesday</th>
+					<th>Thursday</th>
+					<th>Friday</th>
+					<th>Saturday</th>
+					<th>Sunday</th>
+				</tr>
+				<%for(var i  = 1; i <= 24; i++){ %>
+					 <tr> 
+						<td><%=i + ":00"%></td>
+						<td class = "<%=checkTime(i, user.mondayFreeTimes)%>">1</td> 
+						<td class = "<%=checkTime(i, user.tuesdayFreeTimes)%>">1</td>
+						<td class = "<%=checkTime(i, user.wednesdayFreeTimes)%>">1</td>
+						<td class = "<%=checkTime(i, user.thursdayFreeTimes)%>">1</td> 
+						<td class = "<%=checkTime(i, user.fridayFreeTimes)%>">1</td>
+						<td class = "<%=checkTime(i, user.saturdayFreeTimes)%>">1</td> 
+						<td class = "<%=checkTime(i, user.sundayFreeTimes)%>">1</td>
+					  </tr>
+				<%}%>
+				
+			  </thead>
+			</table>
+		</div>
+	</p>
+<script>
+    var selectBoxes = document.getElementsByTagName("select");
+	for (var i = 0; i < selectBoxes.length; i++) {
+		for (var j = 1; j<=24; j++){
+			var opt = document.createElement('option');
+			opt.value = j.toString() + ":00";
+			opt.innerHTML = opt.value;
+			selectBoxes[i].appendChild(opt);
+		}	
+	}
+
+</script>
+<% include partials/footer.ejs %>
+

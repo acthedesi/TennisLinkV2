@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TennisLink</title>
+		<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+			<div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contact</a>
+					</li>
+			</div>
+			<div class="mx-auto order-0">
+				<a class="navbar-brand mx-auto p-1" href="#">TennisLink</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+				<ul class="navbar-nav ml-auto">
+					<% if(currUser && currUser.user){ %>
+					<li class="nav-item active nav-link">
+						Signed in as <%=currUser.user%>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/appointment">Update Availability</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">Logout</a>
+					</li>
+					<%} else {%>
+					<li class="nav-item">
+						<a class="nav-link" href="/login">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/register">Sign Up</a>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+		</nav>
+	</head>
+	<body>
+		
+	
